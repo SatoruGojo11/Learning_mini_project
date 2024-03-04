@@ -32,6 +32,8 @@ dependencies:
     sdk: flutter
   carousel_slider: 
   get: 
+  shimmer: 
+  persistent_bottom_nav_bar:
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -66,6 +68,7 @@ flutter:
     - assets/images/banner.png
     - assets/images/person.jpg
     - assets/images/forest.png
+    - assets/images/logo.png
 
     # Categories
     - assets/categories/double_tree.png

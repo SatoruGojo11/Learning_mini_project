@@ -1,14 +1,105 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mini_project/controllers/notification_screen_controller.dart';
 import 'package:mini_project/models/text.dart';
+import 'package:mini_project/models/textformfield.dart';
 
-class NotificationScreen extends StatelessWidget {
+class NotificationScreen extends GetView<NotificationScreenController> {
   const NotificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: text('Notification Screen', fontSize: 50),
+    double h1 = MediaQuery.of(context).size.height;
+    double w1 = MediaQuery.of(context).size.width;
+
+    return GetBuilder(
+      init: Get.put(NotificationScreenController()),
+      builder: (controller) => Scaffold(
+        body: Padding(
+          padding: EdgeInsets.all(h1 / 50),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: h1 / 10),
+                SizedBox(
+                  width: double.maxFinite,
+                  height: h1 / 10,
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                  ),
+                ),
+                SizedBox(height: h1 / 25),
+                text(
+                  'CREATE NEW ACCOUNT',
+                  fontWeight: FontWeight.bold,
+                  fontSize: h1 / 35,
+                ),
+                SizedBox(height: h1 / 40),
+                textformfield(
+                  controller.nameController.value,
+                  "Enter your Name",
+                  'Name',
+                  prefixicn: const Icon(
+                    Icons.person_2_outlined,
+                  ),
+                ),
+                SizedBox(height: h1 / 40),
+                textformfield(
+                  controller.emailController.value,
+                  "Enter your Email-id",
+                  'Email Address',
+                  prefixicn: const Icon(
+                    Icons.email_outlined,
+                  ),
+                ),
+                SizedBox(height: h1 / 40),
+                GetBuilder(
+                  init: NotificationScreenController(),
+                  builder: (controller) => textformfield(
+                    controller.pwdController.value,
+                    "Enter your Password",
+                    'Password',
+                    obscurity: controller.obscurity.value,
+                    prefixicn: const Icon(Icons.lock_outline),
+                    suffixicn: IconButton(
+                      onPressed: () => controller.suffixIconOfTextField(),
+                      icon: Icon(
+                        controller.obscurity.value
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: h1 / 50),
+                Card(
+                  color: Colors.green,
+                  elevation: w1 / 20,
+                  child: Container(
+                    height: h1 / 17,
+                    width: w1 / 1,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(w1 / 30),
+                      // color: Colors.green,
+                    ),
+                    child: Center(
+                      child: text(
+                        'CREATE',
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: h1 / 50),
+                text(
+                  'I have already an account',
+                  decoration: TextDecoration.underline,
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
