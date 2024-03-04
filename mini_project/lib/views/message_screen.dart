@@ -62,24 +62,6 @@ class MessageScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                // GetBuilder(
-                //   init: MessageScreenController(),
-                //   builder: (controller) => textformfield(
-                //     pwdController,
-                //     "Enter your Password",
-                //     'Password',
-                //     obscurity: controller.obscurity.value,
-                //     prefixicn: const Icon(Icons.lock_outline),
-                //     suffixicn: IconButton(
-                //       onPressed: () => controller.suffixIconOfTextField(),
-                //       icon: Icon(
-                //         controller.obscurity.value
-                //             ? Icons.visibility_off
-                //             : Icons.visibility,
-                //       ),
-                //     ),
-                //   ),
-                // ),
                 SizedBox(height: h1 / 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
