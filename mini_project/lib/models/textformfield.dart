@@ -20,7 +20,6 @@ TextFormField textformfield(
     controller: ctrl,
     obscuringCharacter: "*",
     maxLength: maxLength,
-    // maxLines: 1,
     keyboardType: keyboardtype,
     inputFormatters: inputFormate,
     decoration: InputDecoration(

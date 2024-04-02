@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:mini_project/controllers/routes.dart';
+import 'package:mini_project/routes.dart';
 
 void main(List<String> args) {
   runApp(

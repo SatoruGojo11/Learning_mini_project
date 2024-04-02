@@ -14,15 +14,15 @@ Stack singleNews(BuildContext context, int index) {
   return Stack(
     children: [
       Container(
-        height: h1 / 4,
+        height: h1 / 4.5,
         width: w1 / 1.1,
         decoration: BoxDecoration(
           image: const DecorationImage(
-            // filterQuality: FilterQuality.high,
+            filterQuality: FilterQuality.high,
             image: AssetImage(
               'assets/images/forest.png',
             ),
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
           ),
           borderRadius: BorderRadius.circular(
             20,

@@ -1,54 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mini_project/controllers/home_screen_controller.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class MainScreen extends GetView<HomeScreenController> {
   const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double w1 = MediaQuery.of(context).size.width;
-
     return SafeArea(
       child: Scaffold(
         body: Obx(
-          () => controller.pages[controller.currentIndexOfBNB.value],
-        ),
-        bottomNavigationBar: Obx(
-          () => BottomNavigationBar(
-            iconSize: w1 / 12,
-            selectedFontSize: w1 / 30,
-            selectedItemColor: Colors.green,
-            selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-            unselectedItemColor: Colors.grey,
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                ),
-                label: 'Home',
+          () => PersistentTabView(
+            context,
+            screens: controller.pages,
+            controller: controller.tabController.value,
+            navBarStyle: NavBarStyle.style13,
+            hideNavigationBarWhenKeyboardShows: true,
+            resizeToAvoidBottomInset: true,
+            backgroundColor: controller.settingScreenController.isLight.value
+                ? Colors.white
+                : Colors.black,
+            items: [
+              PersistentBottomNavBarItem(
+                icon: const Icon(Icons.home),
+                title: '',
+                activeColorPrimary: Colors.green,
+                inactiveColorPrimary: Colors.grey,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.message,
-                ),
-                label: 'Message',
+              PersistentBottomNavBarItem(
+                icon: const Icon(Icons.message),
+                title: '',
+                activeColorPrimary: Colors.green,
+                inactiveColorPrimary: Colors.grey,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.notifications,
-                ),
-                label: 'Notification',
+              PersistentBottomNavBarItem(
+                icon: const Icon(Icons.notifications),
+                title: '',
+                activeColorPrimary: Colors.green,
+                inactiveColorPrimary: Colors.grey,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.settings,
-                ),
-                label: 'Settings',
+              PersistentBottomNavBarItem(
+                icon: const Icon(Icons.settings),
+                title: '',
+                activeColorPrimary: Colors.green,
+                inactiveColorPrimary: Colors.grey,
               ),
             ],
-            onTap: controller.updateBNBIndex,
-            currentIndex: controller.currentIndexOfBNB.value,
           ),
         ),
       ),

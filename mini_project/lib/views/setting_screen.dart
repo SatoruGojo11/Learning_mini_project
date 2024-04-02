@@ -10,6 +10,8 @@ class SettingScreen extends GetView<SettingScreenController> {
   Widget build(BuildContext context) {
     double h1 = MediaQuery.of(context).size.height;
     double w1 = MediaQuery.of(context).size.width;
+    Get.put(SettingScreenController());
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,

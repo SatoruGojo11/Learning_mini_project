@@ -16,8 +16,6 @@ class HomePage extends GetView<HomeScreenController> {
   Widget build(BuildContext context) {
     double h1 = MediaQuery.of(context).size.height;
     double w1 = MediaQuery.of(context).size.width;
-
-    Get.put(HomeScreenController());
     return GetBuilder(
       init: HomeScreenController(),
       builder: (controller) => controller.isData.value
@@ -135,11 +133,11 @@ class HomePage extends GetView<HomeScreenController> {
                       SizedBox(height: h1 / 70),
                       // Newses
                       singleNews(context, 0),
-                      SizedBox(height: h1 / 35),
+                      SizedBox(height: h1 / 50),
                       singleNews(context, 1),
-                      SizedBox(height: h1 / 35),
+                      SizedBox(height: h1 / 50),
                       singleNews(context, 2),
-                      SizedBox(height: h1 / 35),
+                      SizedBox(height: h1 / 50),
                       singleNews(context, 3),
                     ],
                   ),

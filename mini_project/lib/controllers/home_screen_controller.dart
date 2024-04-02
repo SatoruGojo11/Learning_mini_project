@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mini_project/controllers/setting_screen_controller.dart';
 import 'package:mini_project/views/home_screen.dart';
 import 'package:mini_project/views/message_screen.dart';
 import 'package:mini_project/views/notification_screen.dart';
 import 'package:mini_project/views/setting_screen.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class HomeScreenController extends GetxController {
   @override
@@ -11,6 +13,9 @@ class HomeScreenController extends GetxController {
     updateData();
     super.onInit();
   }
+
+  SettingScreenController settingScreenController =
+      Get.find<SettingScreenController>();
 
   final searchController = TextEditingController().obs;
   RxInt currentIndicator = 0.obs;
@@ -47,4 +52,7 @@ class HomeScreenController extends GetxController {
     isData.value = true;
     update();
   }
+
+  Rx<PersistentTabController> tabController =
+      PersistentTabController(initialIndex: 0).obs;
 }
